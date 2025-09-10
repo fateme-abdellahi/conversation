@@ -48,7 +48,7 @@ A Django REST API for conversational AI using Groq's external API, with JWT auth
 
 4. **Configure environment variables**
 
-   Create a `.env` file in `groq/groq-api` with:
+   Create a `.env` file in `conversation/conversation` with:
    ```
    DEBUG=True
    SECRET_KEY=your_secret_key

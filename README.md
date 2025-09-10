@@ -31,14 +31,14 @@ A Django REST API for conversational AI using Groq's external API, with JWT auth
    python -m venv venv
    ```
 
-   On windows
+   On Windows
    ```sh
-   venv\Scripts\activate  # Windows
+   venv\Scripts\activate
    ```
 
-   On linux
+   On Linux
    ```sh
-   source venv\bin\activate  # Linux
+   source venv\bin\activate
    ```
 
 3. **Install dependencies**
@@ -102,10 +102,6 @@ All endpoints are under `/api/`:
   ```
   Authorization: Bearer <access_token>
   ```
-
-## Environment Variables
-
-- All sensitive data (API keys, DB credentials) are managed via `.env` file.
 
 ## License
 

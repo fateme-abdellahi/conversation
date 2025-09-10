@@ -9,7 +9,7 @@ class Conversation(models.Model):
     message = models.TextField()
     
     # the response from the model
-    response = models.TextField()
+    response = models.TextField(null=True)
     
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

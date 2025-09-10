@@ -10,3 +10,6 @@ class Conversation(models.Model):
     
     # the response from the model
     response = models.TextField()
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)

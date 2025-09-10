@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('conversation', '0002_conversation_created_at_conversation_updated_at'),
+        ("conversation", "0002_conversation_created_at_conversation_updated_at"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='conversation',
-            name='response',
+            model_name="conversation",
+            name="response",
             field=models.TextField(null=True),
         ),
     ]

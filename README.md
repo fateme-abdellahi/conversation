@@ -1,4 +1,4 @@
-# groq
+# conversation
 
 A Django REST API for conversational AI using Groq's external API, with JWT authentication and PostgreSQL support.
 

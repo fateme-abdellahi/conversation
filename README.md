@@ -23,7 +23,7 @@ A Django REST API for conversational AI using Groq's external API, with JWT auth
 1. **Clone the repository**
    ```sh
    git clone <your-repo-url>
-   cd groq
+   cd conversation
    ```
 
 2. **Create and activate a virtual environment**
@@ -56,9 +56,9 @@ A Django REST API for conversational AI using Groq's external API, with JWT auth
 
    # PostgreSQL settings
    DB_ENGINE=django.db.backends.postgresql
-   DB_NAME=groq_db
-   DB_USER=postgres
-   DB_PASSWORD=your_db_password
+   DB_NAME=your_database
+   DB_USER=your_database_user
+   DB_PASSWORD=your_database_password
    DB_HOST=localhost
    DB_PORT=5432
 

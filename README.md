@@ -80,13 +80,11 @@ A Django REST API for conversational AI using Groq's external API, with JWT auth
 
 ## API Endpoints
 
-All endpoints are under `/api/`:
-
-- `POST /api/register/`  
+- `POST /auth/register/`  
   Register a new user.  
   **Body:** `{ "username": "yourname", "password": "yourpassword" }`
 
-- `POST /api/login/`  
+- `POST /auth/login/`  
   Login and receive JWT tokens.  
   **Body:** `{ "username": "yourname", "password": "yourpassword" }`  
   **Response:** `{ "refresh": "...", "access": "..." }`
@@ -98,7 +96,7 @@ All endpoints are under `/api/`:
 
 ## Authentication
 
-- Use the `access` token from `/api/login/` in the `Authorization` header:
+- Use the `access` token from `/auth/login/` in the `Authorization` header:
   ```
   Authorization: Bearer <access_token>
   ```

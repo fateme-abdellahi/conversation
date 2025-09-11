@@ -46,7 +46,7 @@ class ConversationAPIView(APIView):
             client = Groq(api_key=os.getenv("GROQ_API_KEY"))
             
             # fetch user previous messages from database
-            messages=Conversation.objects.filter(user=request.user).order_by('-created_at')[:5]
+            messages=Conversation.objects.filter(user=request.user).order_by('-created_at')[:5:-1]
             
             # ordered list of messages between user and assistant
             messages_list = []
@@ -59,10 +59,8 @@ class ConversationAPIView(APIView):
             # append the current user message to the list
             messages_list.append({"role": "user", "content": request.data.get("message")})
             
+            # make the groq api request
             chat_completion = client.chat.completions.create(
-                # messages=[
-                #     {"role": "user", "content": f"{request.data.get('message')}"}
-                # ],
                 messages=messages_list,
                 model=f"{os.getenv('GROQ_MODEL')}",
             )

@@ -5,6 +5,7 @@ from rest_framework import status
 from rest_framework import permissions
 from .serializers import ConversationSerializer
 from groq import Groq
+from .models import Conversation
 
 
 # Conversation API
@@ -43,10 +44,26 @@ class ConversationAPIView(APIView):
 
             # groq api call
             client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+            
+            # fetch user previous messages from database
+            messages=Conversation.objects.filter(user=request.user).order_by('-created_at')[:5]
+            
+            # ordered list of messages between user and assistant
+            messages_list = []
+            
+            # create a list of messages from user and assistant to send to groq api
+            for message in messages:
+                messages_list.append({"role": "user", "content": message.message})
+                messages_list.append({"role": "assistant", "content": message.response})
+                
+            # append the current user message to the list
+            messages_list.append({"role": "user", "content": request.data.get("message")})
+            
             chat_completion = client.chat.completions.create(
-                messages=[
-                    {"role": "user", "content": f"{request.data.get('message')}"}
-                ],
+                # messages=[
+                #     {"role": "user", "content": f"{request.data.get('message')}"}
+                # ],
+                messages=messages_list,
                 model=f"{os.getenv('GROQ_MODEL')}",
             )
 

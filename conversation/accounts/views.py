@@ -7,6 +7,7 @@ from rest_framework import permissions
 from rest_framework_simplejwt.tokens import RefreshToken
 from .serializers import UserSerializer
 
+
 # User Registration API
 class RegisterAPIView(APIView):
     """This View registers a new user with username and password.
@@ -98,4 +99,3 @@ class LoginAPIView(APIView):
             return Response(
                 {"error": "Invalid credentials."}, status=status.HTTP_401_UNAUTHORIZED
             )
-

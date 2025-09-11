@@ -6,4 +6,3 @@ class UserSerializer(serializers.Serializer):
     class Meta:
         model = User
         fileds = ["username", "password"]
-

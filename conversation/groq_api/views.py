@@ -6,6 +6,7 @@ from rest_framework import permissions
 from .serializers import ConversationSerializer
 from groq import Groq
 
+
 # Conversation API
 class ConversationAPIView(APIView):
     """This View gets the message from the user,

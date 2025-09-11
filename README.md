@@ -38,7 +38,7 @@ A Django REST API for conversational AI using Groq's external API, with JWT auth
 
    On Linux
    ```sh
-   source venv\bin\activate
+   source venv/bin/activate
    ```
 
 3. **Install dependencies**
